@@ -137,7 +137,7 @@ if(token[0] == NULL)
         fp = fopen(token[1], "r");
         if(fp != NULL)
         {
-          ImageOpened += 1;
+          ImageOpened = 1;
         }
 
         if(fp == NULL)
@@ -153,12 +153,13 @@ if(token[0] == NULL)
 
       if(fp == NULL)
       {
-        printf("Error: File system not open.\n");
+        perror("Error: File system not open.\n");
       }
       else if(fp != NULL)
       {
-        ImageOpened -= 1;
+        ImageOpened = 0;
         fclose(fp);
+        printf("File Closed\n");
       }
 
 
